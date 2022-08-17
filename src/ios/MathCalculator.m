@@ -7,8 +7,8 @@
 }
 
 //- (void)coolMethod:(CDVInvokedUrlCommand*)command;
-- (void)add::(CDVInvokedUrlCommand*)command;
-- (void)substract::(CDVInvokedUrlCommand*)command;
+- (void)add:(CDVInvokedUrlCommand*)command;
+- (void)substract:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation MathCalculator
@@ -16,12 +16,20 @@
 - (void)add:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSNumber *param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
-    NSNumber *param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
+    // NSNumber *param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
+    // NSNumber *param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
 
-    if(param1 >= 0 && param2 >= 0)
+    NSString *a = @"30";
+    NSInteger b = [a integerValue];
+
+    NSString *p = @"20";
+    NSInteger q = [p integerValue];
+
+
+    if(a >= 0 && p >= 0)
     {
-        NSString* total = @(param1 + param2);
+        //NSString *total = [@(param1 + param2)];
+        NSString *total = [NSString stringWithFormat: @"%ld", b+q];
         pluginResult =  [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
     }
     else
@@ -35,13 +43,21 @@
 - (void)substract:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSNumber *param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
-    NSNumber *param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
+    // NSNumber *param1 = [[command.arguments objectAtIndex:0] valueForKey:@"param1"];
+    // NSNumber *param2 = [[command.arguments objectAtIndex:0] valueForKey:@"param2"];
 
-    if(param1 >= 0 && param2 >= 0)
+    NSString *a = @"30";
+    NSInteger b = [a integerValue];
+
+    NSString *p = @"20";
+    NSInteger q = [p integerValue];
+
+
+    if(a >= 0 && p >= 0)
     {
-        NSString* total = @(param1 - param2);
-        pluginResult =  [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
+        //NSString* total = @(param1 - param2);
+        NSString *total = [NSString stringWithFormat: @"%ld", b+q];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
     }
     else
     {

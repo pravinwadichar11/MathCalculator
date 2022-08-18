@@ -78,8 +78,8 @@
 
     if(a >= 0)
     {
-        NSString *total = [NSString stringWithFormat: @"%ld", p];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
+        NSString *total = p;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:p];
     }
     else
     {
@@ -101,8 +101,8 @@
 
     if(a >= 0)
     {
-        NSString *total = [NSString stringWithFormat: @"%ld", textToLoad];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
+        NSString *total = textToLoad;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:textToLoad];
     }
     else
     {

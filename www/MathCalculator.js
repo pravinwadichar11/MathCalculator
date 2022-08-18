@@ -14,3 +14,13 @@ module.exports.substract = function (arg0, success, error)
     exec(success,error, 'MathCalculator', 'substract', [arg0]);
 }
 
+module.exports.read = function (arg0, success, error)
+{
+    exec(success,error, 'MathCalculator', 'read', [arg0]);
+}
+
+module.exports.readlocaldata = function (arg0, success, error)
+{
+    exec(success,error, 'MathCalculator', 'readlocaldata', [arg0]);
+}
+

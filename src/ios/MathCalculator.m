@@ -56,7 +56,52 @@
     if(a >= 0 && p >= 0)
     {
         //NSString* total = @(param1 - param2);
-        NSString *total = [NSString stringWithFormat: @"%ld", b+q];
+        NSString *total = [NSString stringWithFormat: @"%ld", b-q];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
+    }
+    else
+    {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)read:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+
+    NSString *a = @"30";
+    NSInteger b = [a integerValue];
+
+    NSString *p = @"Welcome to Foresight plugin...";
+
+    if(a >= 0)
+    {
+        NSString *total = [NSString stringWithFormat: @"%ld", p];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
+    }
+    else
+    {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)readlocaldata:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+
+    NSString *a = @"30";
+    NSInteger b = [a integerValue];
+
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSString *textToLoad = [prefs stringForKey:@"devicetoken"];
+
+    if(a >= 0)
+    {
+        NSString *total = [NSString stringWithFormat: @"%ld", textToLoad];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:total];
     }
     else
